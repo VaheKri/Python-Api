@@ -1,29 +1,22 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
+from database import get_json
 
 app = FastAPI()
-message = 'default message'
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World!"}
+@app.get("/countrys")
+def get_country(name: str | None = None):
+    data = get_json()["countrys"]
 
+    if name is None:
+        return data
 
-@app.get("/message")
-def get_message():
-    return {"message": message}
+    name = name.lower()
 
+    for index, country in enumerate(data):
+        if name == country['name'].lower():
+            data = data[index]
 
-@app.patch("/message")
-def set_message(text: str = message):
-    global message
-    message = text
-    return {"message": text}
-
-
-@app.delete("/message")
-def clear_message():
-    global message
-    message = ''
-    return {"message": message}
+    return JSONResponse(content=jsonable_encoder(data))
