@@ -37,25 +37,22 @@ body {
 
 .pays {
   position: absolute;
-  width: 20vh;
-  margin-left: 5vh;
-  margin-top: -10vh;
-  height: auto;
 }
 
 .pays-path:hover {
   cursor: pointer;
   fill: #ffa41c;
+  /* fill: #ffa41c; */
 }
 
-#france-path {
+#france {
   margin-left: 5vh;
   margin-top: -10vh;
   width: 20vh;
   height: auto;
 }
 
-#espagne-path {
+#espagne {
   margin-left: -1.2vh;
   margin-top: 3vh;
   width: 18vh;
@@ -67,22 +64,6 @@ body {
   margin-left: -3.1vh;
   margin-top: 6vh;
   width: 5vh;
-  height: auto;
-  transform: rotate(10deg);
-}
-
-#italie-path {
-  margin-left: 1.5vh;
-  margin-top: 6vh;
-  width: 15vh;
-  height: auto;
-  transform: rotate(10deg);
-}
-
-#allemagne-path {
-  margin-left: 1.5vh;
-  margin-top: 6vh;
-  width: 15vh;
   height: auto;
   transform: rotate(10deg);
 }
