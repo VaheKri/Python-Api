@@ -69,6 +69,46 @@ body {
   transform: rotate(10deg);
 }
 
+#italie {
+  margin-left: 21.3vh;
+  margin-top: -2.3vh;
+  width: 14vh;
+  height: auto;
+  transform: rotate(351deg);
+}
+
+#allemagne {
+  margin-left: 19.9vh;
+  margin-top: -16.6vh;
+  width: 10vh;
+  height: auto;
+  transform: rotate(1deg);
+}
+
+#royaume-uni {
+  margin-left: 1.5vh;
+  margin-top: 2vh;
+  width: 10vh;
+  height: auto;
+  transform: rotate(5deg);
+}
+
+#etat-unis {
+  margin-left: -46.5vh;
+  margin-top: -12vh;
+  width: 28vh;
+  height: auto;
+  transform: rotate(5deg);
+}
+
+#canada {
+  margin-left: -45.5vh;
+  margin-top: -39vh;
+  width: 32vh;
+  height: auto;
+  transform: rotate(5deg);
+}
+
 .form {
   text-align: center;
   color: #fff;
