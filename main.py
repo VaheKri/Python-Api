@@ -16,6 +16,45 @@ app = FastAPI()
 # /populations/{id}
 # /monuments/{id}
 
+# Antony
+@app.get('/monuments', status_code=200)
+def get_monuments():
+    monuments = get_db()["monuments"]
+    return JSONResponse(content=jsonable_encoder(monuments))
+
+# Antony
+@app.put('/countrys/{name}', status_code=201)
+def update_country(country: Country, name: str | None = None):
+    db = get_db()
+    countrys = db["countrys"]
+    if name is None:
+        return
+
+    name = name.lower()
+
+    i = -1
+
+    for index, curr_country in enumerate(countrys):
+        print(curr_country)
+        if name == curr_country['name'].lower():
+            i = index
+
+    country = {
+        "id": countrys[i]["id"],
+        "name": countrys[i]["name"],
+        "capital": country.capital,
+        "president": country.president,
+        "national_day": country.national_day,
+        "currency": country.currency,
+        "flag": country.flag,
+        "area": country.area,
+    }
+
+    db["countrys"][i] = country
+    set_db(db)
+
+
+
 # Étienne
 @app.post('/countrys', status_code=201)
 def create_country(country: Country):
@@ -76,4 +115,4 @@ def delete_country(name: str | None = None):
         if name == country['name'].lower():
             del data['countrys'][index]
             set_db(data)
-    return 
+    return

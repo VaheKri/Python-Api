@@ -16,14 +16,14 @@
             "name": "Japon"
         },
         {
-            "id": 15,
-            "name": "Allemagne",
-            "capital": "Dublin?",
-            "president": "jsp",
-            "national_day": "idk",
-            "currency": "Euro",
-            "flag": "url",
-            "area": 9999999
+            "id": 12,
+            "name": "Chine",
+            "capital": "ekthg",
+            "president": "eee",
+            "national_day": "rggrgr",
+            "currency": "yjjsyrj",
+            "flag": "ethrehre",
+            "area": 1
         }
     ],
     "population": [
@@ -42,6 +42,14 @@
             "height": 50,
             "city": "Paris",
             "creation_date": "15 ao\u00fbt 1806",
+            "visitable": true
+        },
+        {
+            "id": 11,
+            "name": "Art de trois",
+            "height": 3,
+            "city": "Cergy",
+            "creation_date": "25 ao\u00fbt 1086",
             "visitable": true
         }
     ]
