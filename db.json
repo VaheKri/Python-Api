@@ -29,10 +29,10 @@
     "populations": [
         {
             "id": 33,
-            "amount": 68014000,
-            "life_span": 42.7,
-            "smic": 1539.42,
-            "majority": 18
+            "amount": 1,
+            "life_span": 2.0,
+            "smic": 3.0,
+            "majority": 4
         }
     ],
     "monuments": [

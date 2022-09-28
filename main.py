@@ -3,6 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from database import get_db, set_db
 from country import Country
+from population import Population
 
 app = FastAPI()
 
@@ -92,3 +93,26 @@ def get_population(id: int | None = None):
     return JSONResponse(content=jsonable_encoder(data))
 
 
+#maxime
+@app.put('/populations/{id}', status_code=201)
+def update_population(id: int, population: Population):
+    if id is None:
+        return
+
+    db = get_db()
+    i = -1
+
+    for index, curr_population in enumerate(db['populations']):
+        if id == curr_population['id']:
+            i = index
+
+    population = {
+        "id": db['populations'][i]['id'],
+        "amount": population.amount,
+        'life_span': population.life_span,
+        'smic': population.smic,
+        'majority': population.majority
+    }
+
+    db['populations'][i] = population
+    set_db(db)
