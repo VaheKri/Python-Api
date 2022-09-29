@@ -3,6 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from database import get_db, set_db
 from country import Country
+from monument import Monument
 
 app = FastAPI()
 
@@ -53,7 +54,46 @@ def update_country(country: Country, name: str | None = None):
     db["countrys"][i] = country
     set_db(db)
 
+# Vahé
+@app.put('/monuments/{id}', status_code=201)
+def update_monument(id: int, monument: Monument):
+    if id is None:
+        return
 
+    db = get_db()
+    i = -1
+
+    for index, curr_monument in enumerate(db['monuments']):
+        if id == curr_monument['id']:
+            i = index
+
+    monument = {
+        "id": id,
+        "name": monument.name,
+        'height': monument.height,
+        'city': monument.city,
+        'creation_date': monument.creation_date,
+        'visitable': monument.visitable
+    }
+
+    db['monuments'][i] = monument
+    set_db(db)
+
+
+# Vahé
+@app.get('/monuments/{id}', status_code=200)
+def get_monument(id: int):
+    if id is None:
+        return
+
+    monuments = get_db()['monuments']
+    data = {}
+
+    for index, monument in enumerate(monuments):
+        if id == monument['id']:
+            data = monuments[index]
+
+    return JSONResponse(content=jsonable_encoder(data))
 
 # Étienne
 @app.post('/countrys', status_code=201)

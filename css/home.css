@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html,
+body {
+  font-family: "Montserrat";
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  color: #fff;
+  font-weight: 600;
+  line-height: 25px;
+  position: absolute;
+  margin-top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main-page {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: #2f375b;
+}
+
+.map {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+}
+.pays-path {
+  transition: all 0.25s ease-in-out;
+}
+
+.pays {
+  position: absolute;
+}
+
+.pays-path:hover {
+  cursor: pointer;
+  fill: #ffa41c;
+  /* fill: #ffa41c; */
+}
+
+#france {
+  margin-left: 5vh;
+  margin-top: -10vh;
+  width: 20vh;
+  height: auto;
+}
+
+#espagne {
+  margin-left: -1.2vh;
+  margin-top: 3vh;
+  width: 18vh;
+  height: auto;
+  transform: rotate(-2deg);
+}
+
+#portugal {
+  margin-left: -3.1vh;
+  margin-top: 6vh;
+  width: 5vh;
+  height: auto;
+  transform: rotate(10deg);
+}
+
+#italie {
+  margin-left: 21.3vh;
+  margin-top: -2.3vh;
+  width: 14vh;
+  height: auto;
+  transform: rotate(351deg);
+}
+
+#allemagne {
+  margin-left: 19.9vh;
+  margin-top: -16.6vh;
+  width: 10vh;
+  height: auto;
+  transform: rotate(1deg);
+}
+
+#royaume-uni {
+  margin-left: 1.5vh;
+  margin-top: 2vh;
+  width: 10vh;
+  height: auto;
+  transform: rotate(5deg);
+}
+
+#etat-unis {
+  margin-left: -46.5vh;
+  margin-top: -12vh;
+  width: 28vh;
+  height: auto;
+  transform: rotate(5deg);
+}
+
+#canada {
+  margin-left: -45.5vh;
+  margin-top: -39vh;
+  width: 32vh;
+  height: auto;
+  transform: rotate(5deg);
+}
+
+.form {
+  text-align: center;
+  color: #fff;
+  width: 30%;
+  height: 500px;
+  z-index: -1;
+  position: absolute;
+  opacity: 0;
+  user-select: none;
+  left: 50%;
+  top: 50%;
+  outline: 10px solid #ffa41c;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(
+  270deg,
+  hsl(229deg 32% 27%) 0%,
+  hsl(229deg 32% 29%) 9%,
+  hsl(229deg 32% 30%) 18%,
+  hsl(229deg 32% 32%) 27%,
+  hsl(229deg 32% 34%) 36%,
+  hsl(229deg 32% 36%) 45%,
+  hsl(229deg 33% 37%) 55%,
+  hsl(229deg 33% 39%) 64%,
+  hsl(229deg 33% 41%) 73%,
+  hsl(229deg 33% 42%) 82%,
+  hsl(229deg 33% 44%) 91%,
+  hsl(229deg 33% 46%) 100%
+);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+form {
+  font-family: "Montserrat";
+}
+
+#close {
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: auto;
+  z-index: -1;
+  position: absolute;
+  opacity: 0;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#close:hover {
+  transform: rotate(180deg);
+}
+
+label {
+  user-select: none;
+}
+
+.form-control {
+  width: 250px;
+  border-radius: 7px;
+  height: 30px;
+  background: #2f375b;
+  color: #fff;
+  border: none;
+  outline: transparent;
+  transition: all 0.2s ease-in-out;
+  font-size: 16px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+}
+
+.form-control:focus {
+  outline: 2px solid #ffa41c;
+}
+
+#btnForm {
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  background: #2f375b;
+  transition: all 0.3s ease-in-out;
+  outline: transparent;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Montserrat";
+}
+
+#btnForm:hover {
+  outline: 2px solid #ffa41c;
+  transform: translate(0, -6px);
+  color: #ffa41c;
+  -webkit-box-shadow: 0px 0px 14px 15px rgba(255,164,28,0.7); 
+  box-shadow: 0px 5px 5px 5px rgba(255,164,28,0.7);
+}
+
+#slogan {
+  line-height: 25px;
+}
+
+label {
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Montserrat";
+}
