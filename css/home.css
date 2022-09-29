@@ -245,3 +245,18 @@ label {
   font-weight: 600;
   font-family: "Montserrat";
 }
+
+#tableau {
+  position: absolute;
+  top: 150%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
