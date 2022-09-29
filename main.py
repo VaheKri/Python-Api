@@ -163,6 +163,45 @@ def update_monument(monument_id: int, monument: Monument):
     set_db(db)
 
 
+   # @app.put('/monuments/{name}', status_code=201)
+   # def update_monument(monument: Monument, name: str | None = None):
+    #    """
+     #   Antony
+      #  Mets à jour un monument
+       # @param monument: Données à insérer
+        #@param name: Nom du monument à mettre à jour
+        #@return: null
+        #"""
+
+        #if name is None:
+         #   return
+
+        #db = get_db()
+        #monuments = db['monuments']
+        #name = name.lower()
+        #i = -1
+
+        #for index, curr_monument in enumerate(monuments):
+         #   print(curr_monument)
+          #  if name == curr_monument['name'].lower():
+           #     i = index
+
+        #if i == -1:
+         #   raise HTTPException(404)
+
+       # monument = {
+        #    'id': monuments[i]['id'],
+         #   'name': monuments[i]['name'],
+          #  'height': monument.height,
+           # 'city': monument.city,
+            #'creation_date': monument.creation_date,
+            #'visitable': monument.visitable
+        #}
+
+        #db['monuments'][i] = monument
+        #set_db(db)
+
+
 @app.get('/countrys/', status_code=200)
 def get_countrys():
     """
