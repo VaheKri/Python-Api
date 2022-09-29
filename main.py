@@ -1,13 +1,23 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+from starlette.middleware.cors import CORSMiddleware
 from database.database import get_db, set_db
 from schemas.country import Country
 from schemas.population import Population
 from schemas.monument import Monument
 
+
+
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post('/countrys/', status_code=201)
 def create_country(country: Country):
