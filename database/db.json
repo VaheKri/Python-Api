@@ -1,60 +1,6 @@
 {
-    "last_id": 2,
-    "countrys": [
-        {
-            "id": 1,
-            "name": "Allmgn",
-            "capital": "Dublin?",
-            "president": "jsp",
-            "national_day": "idk",
-            "currency": "Euro",
-            "flag": "url",
-            "area": 9999999
-        },
-        {
-            "id": 2,
-            "name": "Allgn",
-            "capital": "Dublin?",
-            "president": "jsp",
-            "national_day": "idk",
-            "currency": "Euro",
-            "flag": "url",
-            "area": 9999999
-        }
-    ],
-    "populations": [
-        {
-            "id": 1,
-            "name": "",
-            "height": 0,
-            "city": "",
-            "creation_date": 0,
-            "visitable": false
-        },
-        {
-            "id": 2,
-            "amount": 68014000,
-            "life_span": 42.7,
-            "smic": 1539.42,
-            "majority": 18
-        }
-    ],
-    "monuments": [
-        {
-            "id": 666,
-            "name": "a",
-            "height": 2,
-            "city": "b",
-            "creation_date": "c",
-            "visitable": true
-        },
-        {
-            "id": 666,
-            "name": "b",
-            "height": 2,
-            "city": "b",
-            "creation_date": "c",
-            "visitable": true
-        }
-    ]
+    "last_id": 0,
+    "countrys": [],
+    "populations": [],
+    "monuments": []
 }
