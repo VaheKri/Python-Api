@@ -1,38 +1,71 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from database import get_db, set_db
-from country import Country
-from monument import Monument
+from database.database import get_db, set_db
+from schemas.country import Country
+from schemas.population import Population
+from schemas.monument import Monument
 
 app = FastAPI()
 
 
-# get
-# /populations/{id}
-# /monuments/{id}
+@app.post('/countrys/', status_code=201)
+def create_country(country: Country):
+    """
+    Étienne
+    Ajoute un nouveau pays
+    @param country: Données à insérer
+    @return: null
+    """
+    db = get_db()
+    last_id = db['last_id']
+    name = country.name.lower()
 
-# update
-# /countrys/{name}
-# /populations/{id}
-# /monuments/{id}
+    for index, curr_country in enumerate(db['countrys']):
+        if name == curr_country['name'].lower():
+            raise HTTPException(304)
 
-# Antony
-@app.get('/monuments', status_code=200)
-def get_monuments():
-    monuments = get_db()["monuments"]
-    return JSONResponse(content=jsonable_encoder(monuments))
+    country = {
+        'id': last_id + 1,
+        'name': country.name,
+        'capital': country.capital,
+        'president': country.president,
+        'national_day': country.national_day,
+        'currency': country.currency,
+        'flag': country.flag,
+        'area': country.area
+    }
 
-# Antony
+    population = {
+        'id': last_id + 1,
+        "amount": 0,
+        "life_span": 0.0,
+        "smic": 0.0,
+        "majority": 0
+    }
+
+    db['last_id'] = last_id + 1
+    db['countrys'].append(country)
+    db['populations'].append(population)
+    set_db(db)
+
+
 @app.put('/countrys/{name}', status_code=201)
 def update_country(country: Country, name: str | None = None):
-    db = get_db()
-    countrys = db["countrys"]
+    """
+    Antony
+    Mets à jour un pays
+    @param country: Données à insérer
+    @param name: Nom du pays à mettre à jour
+    @return: null
+    """
+
     if name is None:
         return
 
+    db = get_db()
+    countrys = db['countrys']
     name = name.lower()
-
     i = -1
 
     for index, curr_country in enumerate(countrys):
@@ -40,99 +73,185 @@ def update_country(country: Country, name: str | None = None):
         if name == curr_country['name'].lower():
             i = index
 
+    if i == -1:
+        raise HTTPException(404)
+
     country = {
-        "id": countrys[i]["id"],
-        "name": countrys[i]["name"],
-        "capital": country.capital,
-        "president": country.president,
-        "national_day": country.national_day,
-        "currency": country.currency,
-        "flag": country.flag,
-        "area": country.area,
+        'id': countrys[i]['id'],
+        'name': countrys[i]['name'],
+        'capital': country.capital,
+        'president': country.president,
+        'national_day': country.national_day,
+        'currency': country.currency,
+        'flag': country.flag,
+        'area': country.area,
     }
 
-    db["countrys"][i] = country
+    db['countrys'][i] = country
     set_db(db)
 
-# Vahé
-@app.put('/monuments/{id}', status_code=201)
-def update_monument(id: int, monument: Monument):
-    if id is None:
+
+@app.put('/populations/{population_id}', status_code=201)
+def update_population(population_id: int, population: Population):
+    """
+    Maxime
+    Mets à jour une population
+    @param population_id: Identifiant unique du pays
+    @param population: Données à insérer
+    @return: null
+    """
+
+    if population_id is None:
+        return
+
+    db = get_db()
+    i = -1
+
+    for index, curr_population in enumerate(db['populations']):
+        if population_id == curr_population['id']:
+            i = index
+
+    if i == -1:
+        raise HTTPException(404)
+
+    population = {
+        'id': population_id,
+        'amount': population.amount,
+        'life_span': population.life_span,
+        'smic': population.smic,
+        'majority': population.majority
+    }
+
+    db['populations'][i] = population
+    set_db(db)
+
+
+# TODO GET BY ID & NAME
+@app.put('/monuments/{monument_id}', status_code=201)
+def update_monument(monument_id: int, monument: Monument):
+    """
+    Vahé
+    Mets à jour ou créé un monument
+    @param monument_id: Identifiant unique du pays
+    @param monument: Données à insérer
+    @return: null
+    """
+    if monument_id is None:
         return
 
     db = get_db()
     i = -1
 
     for index, curr_monument in enumerate(db['monuments']):
-        if id == curr_monument['id']:
+        if monument_id == curr_monument['id']:
             i = index
 
     monument = {
-        "id": id,
-        "name": monument.name,
+        'id': monument_id,
+        'name': monument.name,
         'height': monument.height,
         'city': monument.city,
         'creation_date': monument.creation_date,
         'visitable': monument.visitable
     }
 
-    db['monuments'][i] = monument
+    if i == -1:
+        db['monuments'].append(monument)
+    else:
+        db['monuments'][i] = monument
+
     set_db(db)
 
 
-# Vahé
-@app.get('/monuments/{id}', status_code=200)
-def get_monument(id: int):
-    if id is None:
-        return
+   # @app.put('/monuments/{name}', status_code=201)
+   # def update_monument(monument: Monument, name: str | None = None):
+    #    """
+     #   Antony
+      #  Mets à jour un monument
+       # @param monument: Données à insérer
+        #@param name: Nom du monument à mettre à jour
+        #@return: null
+        #"""
 
-    monuments = get_db()['monuments']
-    data = {}
+        #if name is None:
+         #   return
 
-    for index, monument in enumerate(monuments):
-        if id == monument['id']:
-            data = monuments[index]
+        #db = get_db()
+        #monuments = db['monuments']
+        #name = name.lower()
+        #i = -1
 
-    return JSONResponse(content=jsonable_encoder(data))
+        #for index, curr_monument in enumerate(monuments):
+         #   print(curr_monument)
+          #  if name == curr_monument['name'].lower():
+           #     i = index
 
-# Étienne
-@app.post('/countrys', status_code=201)
-def create_country(country: Country):
-    data = get_db()
+        #if i == -1:
+         #   raise HTTPException(404)
 
-    country = {
-        "id": country.id,
-        "name": country.name,
-        "capital": country.capital,
-        "president": country.president,
-        "national_day": country.national_day,
-        "currency": country.currency,
-        "flag": country.flag,
-        "area": country.area
-    }
+       # monument = {
+        #    'id': monuments[i]['id'],
+         #   'name': monuments[i]['name'],
+          #  'height': monument.height,
+           # 'city': monument.city,
+            #'creation_date': monument.creation_date,
+            #'visitable': monument.visitable
+        #}
 
-    data['countrys'].append(country)
-    set_db(data)
-    return
+        #db['monuments'][i] = monument
+        #set_db(db)
 
 
-# Étienne
-@app.get('/countrys', status_code=200)
+@app.get('/countrys/', status_code=200)
 def get_countrys():
+    """
+    Étienne
+    Récupère tous les pays
+    @return: un tableau avec tous les pays existants
+    """
+
     countrys = get_db()['countrys']
     return JSONResponse(content=jsonable_encoder(countrys))
 
 
-# Maxime & Étienne
+@app.get('/populations/', status_code=200)
+def get_populations():
+    """
+    Étienne
+    Récupère toutes les populations
+    @return: un tableau avec toutes les populations existantes
+    """
+
+    populations = get_db()['populations']
+    return JSONResponse(content=jsonable_encoder(populations))
+
+
+@app.get('/monuments/', status_code=200)
+def get_monuments():
+    """
+    Antony
+    Récupère tous les monuments
+    @return: un tableau avec tous les monuments existants
+    """
+
+    monuments = get_db()['monuments']
+    return JSONResponse(content=jsonable_encoder(monuments))
+
+
 @app.get('/countrys/{name}', status_code=200)
 def get_country(name: str | None = None):
-    countrys = get_db()['countrys']
-    data = {}
-
+    """
+    Maxime & Étienne
+    Récupère les informations d'un pays à l'aide de son nom
+    @param name: Nom du pays
+    @return: Les informations du pays souhaité s'il existe
+    """
     if name is None:
-        return data
+        return {}
 
+    countrys = get_db()['countrys']
     name = name.lower()
+    data = {}
 
     for index, country in enumerate(countrys):
         if name == country['name'].lower():
@@ -141,18 +260,80 @@ def get_country(name: str | None = None):
     return JSONResponse(content=jsonable_encoder(data))
 
 
-# Étienne
+@app.get('/populations/{population_id}', status_code=200)
+def get_population(population_id: int | None = None):
+    """
+    Maxime
+    Récupère les informations d'une population avec son identifiant
+    @param population_id: Identifiant unique du pays
+    @return: si il existe, les informations de la population du pays
+    """
+
+    if population_id is None:
+        return {}
+
+    populations = get_db()['populations']
+    data = {}
+
+    for index, population in enumerate(populations):
+        if population_id == population['id']:
+            data = population
+
+    return JSONResponse(content=jsonable_encoder(data))
+
+
+@app.get('/monuments/{monument_id}', status_code=200)
+def get_monument(monument_id: int):
+    """
+    Vahé
+    Récupère les informations d'un ou plusieurs monument(s) avec son identifiant
+    @param monument_id: Identifiant unique du pays
+    @return: s'il existe, un ou plusieurs monuments d'un pays
+    """
+
+    if monument_id is None:
+        return {}
+
+    monuments = get_db()['monuments']
+    data = []
+
+    for index, monument in enumerate(monuments):
+        if monument_id == monument['id']:
+            data.append(monuments[index])
+
+    return JSONResponse(content=jsonable_encoder(data))
+
+
 @app.delete('/countrys/{name}', status_code=204)
 def delete_country(name: str | None = None):
-    data = get_db()
+    """
+    Étienne
+    Supprime un pays à l'aide de son nom
+    @param name: Nom du pays à supprimer
+    @return: null
+    """
 
     if name is None:
         return
 
     name = name.lower()
+    db = get_db()
+    country_id = -1
 
-    for index, country in enumerate(data['countrys']):
+    for index, country in enumerate(db['countrys']):
         if name == country['name'].lower():
-            del data['countrys'][index]
-            set_db(data)
-    return
+            del db['countrys'][index]
+            country_id = country['id']
+
+    if country_id == -1:
+        raise HTTPException(404)
+
+    for index, monument in enumerate(db['monuments']):
+        if country_id == monument['id']:
+            del db['monuments'][index]
+
+    for index, population in enumerate(db['populations']):
+        if country_id == population['id']:
+            del db['populations'][index]
+
+    set_db(db)
