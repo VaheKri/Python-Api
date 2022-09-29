@@ -48,14 +48,14 @@ body {
 
 #france {
   margin-left: 5vh;
-  margin-top: -10vh;
+  margin-top: 0vh;
   width: 20vh;
   height: auto;
 }
 
 #espagne {
   margin-left: -1.2vh;
-  margin-top: 3vh;
+  margin-top: 13vh;
   width: 18vh;
   height: auto;
   transform: rotate(-2deg);
@@ -63,7 +63,7 @@ body {
 
 #portugal {
   margin-left: -3.1vh;
-  margin-top: 6vh;
+  margin-top: 16vh;
   width: 5vh;
   height: auto;
   transform: rotate(10deg);
@@ -71,7 +71,7 @@ body {
 
 #italie {
   margin-left: 21.3vh;
-  margin-top: -2.3vh;
+  margin-top: 7.7vh;
   width: 14vh;
   height: auto;
   transform: rotate(351deg);
@@ -79,23 +79,23 @@ body {
 
 #allemagne {
   margin-left: 19.9vh;
-  margin-top: -16.6vh;
+  margin-top: -6.6vh;
   width: 10vh;
   height: auto;
   transform: rotate(1deg);
 }
 
 #royaume-uni {
-  margin-left: 1.5vh;
-  margin-top: 2vh;
-  width: 10vh;
+  margin-left: 4.5vh;
+  margin-top: -13vh;
+  width: 9vh;
   height: auto;
   transform: rotate(5deg);
 }
 
 #etat-unis {
   margin-left: -46.5vh;
-  margin-top: -12vh;
+  margin-top: -2vh;
   width: 28vh;
   height: auto;
   transform: rotate(5deg);
@@ -103,10 +103,34 @@ body {
 
 #canada {
   margin-left: -45.5vh;
-  margin-top: -39vh;
+  margin-top: -29vh;
   width: 32vh;
   height: auto;
   transform: rotate(5deg);
+}
+
+#groenland {
+  margin-left: -25.5vh;
+  margin-top: -30vh;
+  width: 14vh;
+  height: auto;
+  transform: rotate(346deg);
+}
+
+#alaska {
+  margin-left: -64.5vh;
+  margin-top: -25vh;
+  width: 25vh;
+  height: auto;
+  transform: rotate(26deg);
+}
+
+#mexique {
+  margin-left: -45.8vh;
+  margin-top: 9vh;
+  width: 20vh;
+  height: auto;
+  transform: rotate(7deg);
 }
 
 .form {
@@ -123,20 +147,20 @@ body {
   outline: 10px solid #ffa41c;
   transform: translate(-50%, -50%);
   background-image: linear-gradient(
-  270deg,
-  hsl(229deg 32% 27%) 0%,
-  hsl(229deg 32% 29%) 9%,
-  hsl(229deg 32% 30%) 18%,
-  hsl(229deg 32% 32%) 27%,
-  hsl(229deg 32% 34%) 36%,
-  hsl(229deg 32% 36%) 45%,
-  hsl(229deg 33% 37%) 55%,
-  hsl(229deg 33% 39%) 64%,
-  hsl(229deg 33% 41%) 73%,
-  hsl(229deg 33% 42%) 82%,
-  hsl(229deg 33% 44%) 91%,
-  hsl(229deg 33% 46%) 100%
-);
+    270deg,
+    hsl(229deg 32% 27%) 0%,
+    hsl(229deg 32% 29%) 9%,
+    hsl(229deg 32% 30%) 18%,
+    hsl(229deg 32% 32%) 27%,
+    hsl(229deg 32% 34%) 36%,
+    hsl(229deg 32% 36%) 45%,
+    hsl(229deg 33% 37%) 55%,
+    hsl(229deg 33% 39%) 64%,
+    hsl(229deg 33% 41%) 73%,
+    hsl(229deg 33% 42%) 82%,
+    hsl(229deg 33% 44%) 91%,
+    hsl(229deg 33% 46%) 100%
+  );
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -207,8 +231,8 @@ label {
   outline: 2px solid #ffa41c;
   transform: translate(0, -6px);
   color: #ffa41c;
-  -webkit-box-shadow: 0px 0px 14px 15px rgba(255,164,28,0.7); 
-  box-shadow: 0px 5px 5px 5px rgba(255,164,28,0.7);
+  -webkit-box-shadow: 0px 0px 14px 15px rgba(255, 164, 28, 0.7);
+  box-shadow: 0px 5px 5px 5px rgba(255, 164, 28, 0.7);
 }
 
 #slogan {
