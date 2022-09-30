@@ -45,14 +45,14 @@ body {
   /* fill: #ffa41c; */
 }
 
-#france {
+.map > #france {
   margin-left: 5vh;
   margin-top: 0vh;
   width: 20vh;
   height: auto;
 }
 
-#espagne {
+.map > #espagne {
   margin-left: -1.2vh;
   margin-top: 13vh;
   width: 18vh;
@@ -60,7 +60,7 @@ body {
   transform: rotate(-2deg);
 }
 
-#portugal {
+.map > #portugal {
   margin-left: -3.1vh;
   margin-top: 16vh;
   width: 5vh;
@@ -68,7 +68,7 @@ body {
   transform: rotate(10deg);
 }
 
-#italie {
+.map > #italie {
   margin-left: 21.3vh;
   margin-top: 7.7vh;
   width: 14vh;
@@ -76,7 +76,7 @@ body {
   transform: rotate(351deg);
 }
 
-#allemagne {
+.map > #allemagne {
   margin-left: 19.9vh;
   margin-top: -6.6vh;
   width: 10vh;
@@ -84,7 +84,7 @@ body {
   transform: rotate(1deg);
 }
 
-#royaume-uni {
+.map > #royaume-uni {
   margin-left: 4.5vh;
   margin-top: -13vh;
   width: 9vh;
@@ -92,7 +92,7 @@ body {
   transform: rotate(5deg);
 }
 
-#etat-unis {
+.map > #etat-unis {
   margin-left: -46.5vh;
   margin-top: -2vh;
   width: 28vh;
@@ -100,7 +100,7 @@ body {
   transform: rotate(5deg);
 }
 
-#canada {
+.map > #canada {
   margin-left: -45.5vh;
   margin-top: -29vh;
   width: 32vh;
@@ -108,7 +108,7 @@ body {
   transform: rotate(5deg);
 }
 
-#groenland {
+.map > #groenland {
   margin-left: -25.5vh;
   margin-top: -30vh;
   width: 14vh;
@@ -116,7 +116,7 @@ body {
   transform: rotate(346deg);
 }
 
-#alaska {
+.map > #alaska {
   margin-left: -64.5vh;
   margin-top: -25vh;
   width: 25vh;
@@ -124,7 +124,7 @@ body {
   transform: rotate(26deg);
 }
 
-#mexique {
+.map > #mexique {
   margin-left: -45.8vh;
   margin-top: 9vh;
   width: 20vh;
@@ -136,7 +136,7 @@ body {
   text-align: center;
   color: #fff;
   width: 30%;
-  height: 80%;
+  height: 550px;
   z-index: -1;
   position: absolute;
   left: 50%;

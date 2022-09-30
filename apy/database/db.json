@@ -1,17 +1,33 @@
 {
-    "last_id": 1,
+    "last_id": 2,
     "countrys": [
         {
-            "id": 1,
+            "id": 0,
             "name": "france",
             "capital": "Paris",
             "president": "Emmanuel Macron",
             "national_day": "14/07",
             "currency": "Euro",
             "area": 543940
+        },
+        {
+            "id": 1,
+            "name": "italy",
+            "capital": "Rome",
+            "president": "Sergio Mattarella",
+            "national_day": "02/06",
+            "currency": "Euro",
+            "area": 301230
         }
     ],
     "populations": [
+        {
+            "id": 0,
+            "amount": 0,
+            "life_span": 0.0,
+            "smic": 0.0,
+            "majority": 0
+        },
         {
             "id": 1,
             "amount": 0,
