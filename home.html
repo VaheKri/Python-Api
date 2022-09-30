@@ -180,7 +180,7 @@
     </div>
     <div class="form">
       <img id="close" src="img/traverser.png" alt="" />
-      <form class="forms">
+      <div class="forms">
         <div class="form-group">
           <label for="Nom-du-Pays">Nom du Pays :</label>
           <br />
@@ -231,25 +231,47 @@
         </div>
         <br />
         <div class="form-group">
-          <label for="slogan">Slogan :</label>
+          <label for="nationalDay">national day :</label>
           <br />
-          <textarea
+          <input
             class="form-control"
-            id="slogan"
-            name="slogan"
-            placeholder="Slogan"
-          ></textarea>
+            id="nationalDay"
+            name="nationalDay"
+            placeholder="national day"
+          >
         </div>
+          <div class="form-group">
+            <label for="currency">Currency :</label>
+              <br />
+                <input
+                    class="form-control"
+                    id="currency"
+                    name="currency"
+                    placeholder="currency"
+                >
+            </div>
+
+          <div class="form-group">
+            <label for="area">Area :</label>
+              <br />
+                <input
+                    class="form-control"
+                    id="area"
+                    name="area"
+                    placeholder="Area"
+                >
+            </div>
+
         <br />
         <button type="submit" class="btn btn-primary" id="btnForm">
           Envoyer
         </button>
-      </form>
+      </div>
     </div>
 
 
  <div id="tableau">
-    <table >
+    <table>
       <thead>
         <tr>
           <th scope="col">Nom du Pays</th>
@@ -362,6 +384,7 @@
           <td id="CanadaArea"></td>
         </tr>
       </tbody>
+      </table>
  </div>
 
     <script src="./js/home.js"></script>

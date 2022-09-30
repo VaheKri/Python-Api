@@ -256,6 +256,7 @@ def get_country(name: str | None = None):
     @param name: Nom du pays
     @return: Les informations du pays souhaité s'il existe
     """
+
     if name is None:
         return {}
 
