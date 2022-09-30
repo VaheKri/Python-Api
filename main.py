@@ -42,7 +42,6 @@ def create_country(country: Country):
         'president': country.president,
         'national_day': country.national_day,
         'currency': country.currency,
-        'flag': country.flag,
         'area': country.area
     }
 
@@ -93,7 +92,6 @@ def update_country(country: Country, name: str | None = None):
         'president': country.president,
         'national_day': country.national_day,
         'currency': country.currency,
-        'flag': country.flag,
         'area': country.area,
     }
 

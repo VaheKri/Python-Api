@@ -245,11 +245,34 @@ label {
 
 table {
   border-collapse: collapse;
-      width: 100%;
+  width: 100%;
+  background: #d0d0d0;
 }
 
 th,
 td {
   border: 1px solid black;
   padding: 10px;
+}
+
+#edit-remove {
+  text-align: center;
+}
+
+#btn-edit, #btn-remove {
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#btn-remove {
+  padding-left: 20px;
+}
+
+#btn-remove:hover {
+  color: red;
+}
+
+#btn-edit:hover {
+  color: #515b87;
 }

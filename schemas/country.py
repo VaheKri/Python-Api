@@ -8,5 +8,4 @@ class Country(BaseModel):
     president: str
     national_day: str
     currency: str
-    flag: str
     area: int
